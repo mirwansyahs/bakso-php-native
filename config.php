@@ -4,7 +4,7 @@
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
     
-    const base_url      = "http://localhost/bakso/";
+    const base_url      = "http://localhost/bakso-php-native/";
     const base_name     = "Bakso Yamin Kang Iim";
     const favicon       = "AdminLTELogo.png";
 
