@@ -130,7 +130,7 @@
           </li>
           
           <li class="nav-item">
-            <a href="<?=base_url?>admin/voucher.php" class="nav-link <?=($data['judul'] == "Voucher")?'menu-open active' : ''?>">
+            <a href="<?=base_url?>admin/voucher.php" class="nav-link <?=($data['judul'] == "Voucher")?'active' : ''?>">
               <i class="nav-icon fas fa-gift"></i>
               <p>
                 Voucher
@@ -138,8 +138,8 @@
             </a>
           </li>
 
-          <li class="nav-item">
-            <a href="#" class="nav-link">
+          <li class="nav-item <?=($data['judul'] == "Pengguna")?'menu-open' : ''?>">
+            <a href="#" class="nav-link <?=($data['judul'] == "Pengguna")?'active' : ''?>">
               <i class="nav-icon fas fa-users"></i>
               <p>
                 Pengguna
@@ -183,6 +183,15 @@
               <i class="nav-icon fas fa-gifts"></i>
               <p>
                 Redeem Voucehr
+              </p>
+            </a>
+          </li>
+          
+          <li class="nav-item">
+            <a href="<?=base_url?>admin/chat.php" class="nav-link <?=($data['judul'] == "Chat")?'active' : ''?>">
+              <i class="nav-icon fas fa-envelope"></i>
+              <p>
+                Chatting
               </p>
             </a>
           </li>

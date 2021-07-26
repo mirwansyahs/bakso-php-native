@@ -11,10 +11,10 @@ class voucher extends Backend{
     function list(){
         $data['judul']  = "Voucher";
         if ($_SESSION['role_id'] == "0"){
-            $data['dataNotifikasi']   = $this->con->query('SELECT * FROM tb_orders WHERE bukti_transaksi != "" ORDER BY orders_date DESC');
+            $data['dataNotifikasi']   = $this->con->query('SELECT * FROM tb_pembelian WHERE bukti_transaksi != "" ORDER BY orders_date DESC');
         }else{
-            $data['dataNotifikasi']   = $this->con->query('SELECT * FROM tb_orders WHERE status_pengiriman="1" AND  users_id="'.$_SESSION['users_id'].'"');
-            $data['dataUsers']      = $this->con->query('SELECT * FROM tb_users WHERE users_id="'.$_SESSION['users_id'].'"')->fetch_object();
+            $data['dataNotifikasi']   = $this->con->query('SELECT * FROM tb_pembelian WHERE status_pengiriman="1" AND  users_id="'.$_SESSION['users_id'].'"');
+            $data['dataUsers']      = $this->con->query('SELECT * FROM tb_pengguna WHERE users_id="'.$_SESSION['users_id'].'"')->fetch_object();
         }
 
         $data['value']  = $this->con->query('SELECT * FROM tb_voucher');
@@ -24,9 +24,9 @@ class voucher extends Backend{
     function tambah(){
         $data['judul']  = "Voucher";
         if ($_SESSION['role_id'] == "0"){
-            $data['dataNotifikasi']   = $this->con->query('SELECT * FROM tb_orders WHERE bukti_transaksi != "" ORDER BY orders_date DESC');
+            $data['dataNotifikasi']   = $this->con->query('SELECT * FROM tb_pembelian WHERE bukti_transaksi != "" ORDER BY orders_date DESC');
         }else{
-            $data['dataNotifikasi']   = $this->con->query('SELECT * FROM tb_orders WHERE status_pengiriman="1" AND  users_id="'.$_SESSION['users_id'].'"');
+            $data['dataNotifikasi']   = $this->con->query('SELECT * FROM tb_pembelian WHERE status_pengiriman="1" AND  users_id="'.$_SESSION['users_id'].'"');
         }
 
         echo $this->views("voucher/tambah.php", $data);
@@ -45,9 +45,9 @@ class voucher extends Backend{
     function edit(){
         $data['judul']  = "Voucher";
         if ($_SESSION['role_id'] == "0"){
-            $data['dataNotifikasi']   = $this->con->query('SELECT * FROM tb_orders WHERE bukti_transaksi != "" ORDER BY orders_date DESC');
+            $data['dataNotifikasi']   = $this->con->query('SELECT * FROM tb_pembelian WHERE bukti_transaksi != "" ORDER BY orders_date DESC');
         }else{
-            $data['dataNotifikasi']   = $this->con->query('SELECT * FROM tb_orders WHERE status_pengiriman="1" AND  users_id="'.$_SESSION['users_id'].'"');
+            $data['dataNotifikasi']   = $this->con->query('SELECT * FROM tb_pembelian WHERE status_pengiriman="1" AND  users_id="'.$_SESSION['users_id'].'"');
         }
 
         $data['value']  = $this->con->query("SELECT * FROM tb_voucher WHERE voucher_id='".$_GET['id']."'")->fetch_object();
@@ -66,14 +66,14 @@ class voucher extends Backend{
     
     function prosesBuy($id){
         $dataVoucher = $this->con->query("SELECT * FROM tb_voucher WHERE voucher_id='".$id."'")->fetch_object();
-        $result = $this->con->query("INSERT INTO tb_users_voucher(voucher_kode, users_id, redeem_date) VALUES('".$dataVoucher->voucher_kode."', '".$_SESSION['users_id']."', '".date("Y-m-d H:i:s")."')");
+        $result = $this->con->query("INSERT INTO tb_pengguna_voucher(voucher_kode, users_id, redeem_date) VALUES('".$dataVoucher->voucher_kode."', '".$_SESSION['users_id']."', '".date("Y-m-d H:i:s")."')");
         if ($result){
-            $dataUsers      = $this->con->query('SELECT * FROM tb_users WHERE users_id="'.$_SESSION['users_id'].'"')->fetch_object();
+            $dataUsers      = $this->con->query('SELECT * FROM tb_pengguna WHERE users_id="'.$_SESSION['users_id'].'"')->fetch_object();
             
             $currentPoints = $dataUsers->points;
             $transaksiPoint= $currentPoints - $dataVoucher->voucher_harga;
 
-            $this->con->query("UPDATE tb_users SET points='".$transaksiPoint."' WHERE users_id='".$dataUsers->users_id."'");
+            $this->con->query("UPDATE tb_pengguna SET points='".$transaksiPoint."' WHERE users_id='".$dataUsers->users_id."'");
 
 			echo json_encode(array("succ" => 1, "pwd" => "SPT"));
 		}else{

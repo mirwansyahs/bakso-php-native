@@ -7,7 +7,7 @@ if (@$_POST['loginProses']){
     extract($_POST);
     $password = sha1(md5($password));
     $config = new Config();
-    $cekUser = $config->con->query("SELECT * FROM tb_users WHERE email='".$email."' AND password='".$password."'");
+    $cekUser = $config->con->query("SELECT * FROM tb_pengguna WHERE email='".$email."' AND password='".$password."'");
 
     if ($cekUser->num_rows > 0){
       $cekUser                = $cekUser->fetch_array();

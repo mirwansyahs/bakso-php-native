@@ -1,6 +1,6 @@
 <?php
 include("../backend.php");
-class Produk extends Backend{
+class chat extends Backend{
     function __construct(){
         parent::__construct();
         if (@$_SESSION['users_id'] == ""){
@@ -11,39 +11,39 @@ class Produk extends Backend{
     function list(){
         $data['judul']  = "Detail";
         if ($_SESSION['role_id'] == "0"){
-            $data['dataNotifikasi']   = $this->con->query('SELECT * FROM tb_orders WHERE bukti_transaksi != "" ORDER BY orders_date DESC');
+            $data['dataNotifikasi']   = $this->con->query('SELECT * FROM tb_pembelian WHERE bukti_transaksi != "" ORDER BY orders_date DESC');
         }else{
-            $data['dataNotifikasi']   = $this->con->query('SELECT * FROM tb_orders WHERE status_pengiriman="1" AND  users_id="'.$_SESSION['users_id'].'"');
+            $data['dataNotifikasi']   = $this->con->query('SELECT * FROM tb_pembelian WHERE status_pengiriman="1" AND  users_id="'.$_SESSION['users_id'].'"');
         }
 
-        $data['value']  = $this->con->query('SELECT * FROM tb_produk');
+        $data['value']  = $this->con->query('SELECT * FROM tb_chat');
         echo $this->views("detail/list.php", $data);
     } 
  
 }
 
-$produk = new Produk();
+$chat = new chat();
 
 if (!@$_GET['aksi']){
     // tampilkan list
-    $produk->list();
+    $chat->list();
 }else{
 
     if (@$_GET['aksi'] == "tambah"){
         // tambah data
-        $produk->tambah();
+        $chat->tambah();
         if (@$_POST['simpan']){
-            $produk->prosesTambah();
+            $chat->prosesTambah();
         }
     }elseif (@$_GET['aksi'] == "edit"){
         // edit data
-        $produk->edit();
+        $chat->edit();
         if (@$_POST['simpan']){
-            $produk->prosesEdit($_GET['id']);
+            $chat->prosesEdit($_GET['id']);
         }
     }elseif (@$_GET['aksi'] == "hapus"){
         // hapus data
-        $produk->prosesHapus($_GET['id']);
+        $chat->prosesHapus($_GET['id']);
         
     }
 }

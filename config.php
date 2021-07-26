@@ -11,7 +11,7 @@
     const hostname   = "localhost";
     const username   = "root";
     const password   = "";
-    const database   = "spt_crm";
+    const database   = "db_bakso";
 
     class Config{
         public $con;

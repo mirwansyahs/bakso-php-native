@@ -12,9 +12,9 @@ class Produk extends Backend{
         $data['judul']  = "Produk";
         $data['value']  = $this->con->query('SELECT * FROM tb_produk');
         if ($_SESSION['role_id'] == "0"){
-            $data['dataNotifikasi']   = $this->con->query('SELECT * FROM tb_orders WHERE bukti_transaksi != "" ORDER BY orders_date DESC');
+            $data['dataNotifikasi']   = $this->con->query('SELECT * FROM tb_pembelian WHERE bukti_transaksi != "" ORDER BY orders_date DESC');
         }else{
-            $data['dataNotifikasi']   = $this->con->query('SELECT * FROM tb_orders WHERE status_pengiriman="1" AND  users_id="'.$_SESSION['users_id'].'"');
+            $data['dataNotifikasi']   = $this->con->query('SELECT * FROM tb_pembelian WHERE status_pengiriman="1" AND  users_id="'.$_SESSION['users_id'].'"');
         }
 
         echo $this->views("produk/list.php", $data);
@@ -23,9 +23,9 @@ class Produk extends Backend{
     function tambah(){
         $data['judul']  = "Produk";
         if ($_SESSION['role_id'] == "0"){
-            $data['dataNotifikasi']   = $this->con->query('SELECT * FROM tb_orders WHERE bukti_transaksi != "" ORDER BY orders_date DESC');
+            $data['dataNotifikasi']   = $this->con->query('SELECT * FROM tb_pembelian WHERE bukti_transaksi != "" ORDER BY orders_date DESC');
         }else{
-            $data['dataNotifikasi']   = $this->con->query('SELECT * FROM tb_orders WHERE status_pengiriman="1" AND  users_id="'.$_SESSION['users_id'].'"');
+            $data['dataNotifikasi']   = $this->con->query('SELECT * FROM tb_pembelian WHERE status_pengiriman="1" AND  users_id="'.$_SESSION['users_id'].'"');
         }
 
         echo $this->views("produk/tambah.php", $data);
@@ -59,9 +59,9 @@ class Produk extends Backend{
         $data['judul']  = "Produk";
         $data['value']  = $this->con->query("SELECT * FROM tb_produk WHERE produk_id='".$_GET['id']."'")->fetch_object();
         if ($_SESSION['role_id'] == "0"){
-            $data['dataNotifikasi']   = $this->con->query('SELECT * FROM tb_orders WHERE bukti_transaksi != "" ORDER BY orders_date DESC');
+            $data['dataNotifikasi']   = $this->con->query('SELECT * FROM tb_pembelian WHERE bukti_transaksi != "" ORDER BY orders_date DESC');
         }else{
-            $data['dataNotifikasi']   = $this->con->query('SELECT * FROM tb_orders WHERE status_pengiriman="1" AND  users_id="'.$_SESSION['users_id'].'"');
+            $data['dataNotifikasi']   = $this->con->query('SELECT * FROM tb_pembelian WHERE status_pengiriman="1" AND  users_id="'.$_SESSION['users_id'].'"');
         }
 
         echo $this->views("produk/edit.php", $data);

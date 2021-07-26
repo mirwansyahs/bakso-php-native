@@ -11,11 +11,11 @@ class admin extends Backend{
     function list(){
         $data['judul']  = "Pengguna";
         $data['url']    = "admin";
-        $data['value']  = $this->con->query('SELECT * FROM tb_users WHERE role_id="0"');
+        $data['value']  = $this->con->query('SELECT * FROM tb_pengguna WHERE role_id="0"');
         if ($_SESSION['role_id'] == "0"){
-            $data['dataNotifikasi']   = $this->con->query('SELECT * FROM tb_orders WHERE bukti_transaksi != "" ORDER BY orders_date DESC');
+            $data['dataNotifikasi']   = $this->con->query('SELECT * FROM tb_pembelian WHERE bukti_transaksi != "" ORDER BY orders_date DESC');
         }else{
-            $data['dataNotifikasi']   = $this->con->query('SELECT * FROM tb_orders WHERE status_pengiriman="1" AND  users_id="'.$_SESSION['users_id'].'"');
+            $data['dataNotifikasi']   = $this->con->query('SELECT * FROM tb_pembelian WHERE status_pengiriman="1" AND  users_id="'.$_SESSION['users_id'].'"');
         }
 
         echo $this->views("pengguna/list.php", $data);
@@ -25,9 +25,9 @@ class admin extends Backend{
         $data['judul']  = "Pengguna";
         $data['url']    = "admin";
         if ($_SESSION['role_id'] == "0"){
-            $data['dataNotifikasi']   = $this->con->query('SELECT * FROM tb_orders WHERE bukti_transaksi != "" ORDER BY orders_date DESC');
+            $data['dataNotifikasi']   = $this->con->query('SELECT * FROM tb_pembelian WHERE bukti_transaksi != "" ORDER BY orders_date DESC');
         }else{
-            $data['dataNotifikasi']   = $this->con->query('SELECT * FROM tb_orders WHERE status_pengiriman="1" AND  users_id="'.$_SESSION['users_id'].'"');
+            $data['dataNotifikasi']   = $this->con->query('SELECT * FROM tb_pembelian WHERE status_pengiriman="1" AND  users_id="'.$_SESSION['users_id'].'"');
         }
 
         echo $this->views("pengguna/tambah.php", $data);
@@ -35,7 +35,7 @@ class admin extends Backend{
 
     function prosesTambah(){
         extract($_POST);
-        $result = $this->con->query("INSERT INTO tb_users(users_nama, email, password, role_id) VALUES('".$users_nama."', '".$email."', '".sha1(md5($password))."', '".$role_id."')");
+        $result = $this->con->query("INSERT INTO tb_pengguna(users_nama, email, password, role_id) VALUES('".$users_nama."', '".$email."', '".sha1(md5($password))."', '".$role_id."')");
         if ($result){
             $this->redirect("admin.php");
         }else{
@@ -46,11 +46,11 @@ class admin extends Backend{
     function edit(){
         $data['judul']  = "Pengguna";
         $data['url']    = "admin";
-        $data['value']  = $this->con->query("SELECT * FROM tb_users WHERE users_id='".$_GET['id']."'")->fetch_object();
+        $data['value']  = $this->con->query("SELECT * FROM tb_pengguna WHERE users_id='".$_GET['id']."'")->fetch_object();
         if ($_SESSION['role_id'] == "0"){
-            $data['dataNotifikasi']   = $this->con->query('SELECT * FROM tb_orders WHERE bukti_transaksi != "" ORDER BY orders_date DESC');
+            $data['dataNotifikasi']   = $this->con->query('SELECT * FROM tb_pembelian WHERE bukti_transaksi != "" ORDER BY orders_date DESC');
         }else{
-            $data['dataNotifikasi']   = $this->con->query('SELECT * FROM tb_orders WHERE status_pengiriman="1" AND  users_id="'.$_SESSION['users_id'].'"');
+            $data['dataNotifikasi']   = $this->con->query('SELECT * FROM tb_pembelian WHERE status_pengiriman="1" AND  users_id="'.$_SESSION['users_id'].'"');
         }
 
         echo $this->views("pengguna/edit.php", $data);
@@ -59,11 +59,11 @@ class admin extends Backend{
     function prosesEdit($id){
         extract($_POST);
         if ($password == ""){
-            $password = $this->con->query("SELECT * FROM tb_users WHERE users_id='".$id."'")->fetch_object()->password;
+            $password = $this->con->query("SELECT * FROM tb_pengguna WHERE users_id='".$id."'")->fetch_object()->password;
         }else{
             $password = sha1(md5($password));
         }
-        $result = $this->con->query("UPDATE tb_users SET users_nama='".$users_nama."', email='".$email."', password='".$password."', role_id='".$role_id."' WHERE users_id='".$id."'");
+        $result = $this->con->query("UPDATE tb_pengguna SET users_nama='".$users_nama."', email='".$email."', password='".$password."', role_id='".$role_id."' WHERE users_id='".$id."'");
         if ($result){
             $this->redirect("admin.php");
         }else{
@@ -72,7 +72,7 @@ class admin extends Backend{
     }
     
     function prosesHapus($id){
-        $result = $this->con->query("DELETE FROM tb_users WHERE users_id='".$id."'");
+        $result = $this->con->query("DELETE FROM tb_pengguna WHERE users_id='".$id."'");
         if ($result){
 			echo json_encode(array("succ" => 1, "pwd" => "SPT"));
 		}else{
