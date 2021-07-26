@@ -129,7 +129,7 @@
                                 class="img-fluid service-image" /></a>
                         <div class="blog-info">
                             <a href="#service" class="title">Bakso Yamin</a>
-                            <p class="text-para">Bakso Yamin yang mantap</p>
+                            <p class="text-para">Bakso Yamin dengan cita rasa yang khas dan mantap pastinya</p>
                         </div>
                         <a href="#learnmore" class="btn btn-style1 mt-3">Selengkapnya</a>
                     </div>
@@ -180,34 +180,28 @@
     <div class="blog py-5" id="Newsblog">
         <div class="container py-lg-5 py-md-4 py-2">
             <h5 class="title-small text-center mb-1"></h5>
-            <h3 class="title-big text-center mb-sm-5 mb-4">Produk terlaris</h3>
+            <h3 class="title-big text-center mb-sm-5 mb-4">Menu favorite</h3>
             <div class="row">
                 <div class="col-lg-4 col-md-6 item">
                     <div class="card">
                         <div class="card-header p-0 position-relative">
                             <a href="#blog-single" class="zoom d-block">
-                                <img class="card-img-bottom d-block" src="<?=base_url?>assets/images/telur.jpg"
+                                <img class="card-img-bottom d-block" src="<?=base_url?>assets/images/bks6.jpeg"
                                     alt="Card image cap">
                             </a>
                         </div>
                         <div class="card-body blog-details">
                             <div class="price-review d-flex justify-content-between mb-1 align-items-center">
-                                <p>Telur</p>
+                                <p>Bakso Spesial</p>
                             </div>
-                            <a href="#blog-single" class="blog-desc">Telur Ayam Negri </a>
+                            <a href="#blog-single" class="blog-desc">Bakso Spesial </a>
                         </div>
                         <div class="card-footer">
                             <div class="author align-items-center">
-                                <a href="#author" class="post-author"> 
-                                    <img src="<?=base_url?>assets/images/team1.jpg" alt="" class="img-fluid rounded-circle">
-                                </a>
-                                <ul class="blog-meta">
-                                    <li>
-                                        <span class="meta-value">Toko</span><a href="#author"> Harapan</a>
-                                    </li>
-                                </ul>
+                                
+                               
                                 <div class="date">
-                                    <p>16.000/kg</p>
+                                    <p>RP 16.000</p>
                                 </div>
                             </div>
                         </div>
@@ -218,28 +212,22 @@
                     <div class="card">
                         <div class="card-header p-0 position-relative">
                             <a href="#blog-single" class="zoom d-block">
-                                <img class="card-img-bottom d-block" src="<?=base_url?>assets/images/daging.jpg"
+                                <img class="card-img-bottom d-block" src="<?=base_url?>assets/images/bks6.jpeg"
                                     alt="Card image cap">
                             </a>
                         </div>
                         <div class="card-body blog-details">
                             <div class="price-review d-flex justify-content-between mb-1 align-items-center">
-                                <p>Telur</p>
+                                <p>Bakso Spesial</p>
                             </div>
-                            <a href="#blog-single" class="blog-desc">Daging sapi Wagyu a5</a>
+                            <a href="#blog-single" class="blog-desc">Bakso Spesial </a>
                         </div>
                         <div class="card-footer">
                             <div class="author align-items-center">
-                                <a href="#author" class="post-author"> 
-                                    <img src="<?=base_url?>assets/images/team1.jpg" alt="" class="img-fluid rounded-circle">
-                                </a>
-                                <ul class="blog-meta">
-                                    <li>
-                                        <span class="meta-value">Toko</span><a href="#author"> dagingku</a>
-                                    </li>
-                                </ul>
+                                
+                               
                                 <div class="date">
-                                    <p>110.000/kg</p>
+                                    <p>RP 16.000</p>
                                 </div>
                             </div>
                         </div>
@@ -250,28 +238,22 @@
                     <div class="card">
                         <div class="card-header p-0 position-relative">
                             <a href="#blog-single" class="zoom d-block">
-                                <img class="card-img-bottom d-block" src="<?=base_url?>assets/images/beras.jpg"
+                                <img class="card-img-bottom d-block" src="<?=base_url?>assets/images/bks6.jpeg"
                                     alt="Card image cap">
                             </a>
                         </div>
                         <div class="card-body blog-details">
                             <div class="price-review d-flex justify-content-between mb-1 align-items-center">
-                                <p>Telur</p>
+                                <p>Bakso Spesial</p>
                             </div>
-                            <a href="#blog-single" class="blog-desc">Beras Super Pandan </a>
+                            <a href="#blog-single" class="blog-desc">Bakso Spesial </a>
                         </div>
                         <div class="card-footer">
                             <div class="author align-items-center">
-                                <a href="#author" class="post-author"> 
-                                    <img src="<?=base_url?>assets/images/team1.jpg" alt="" class="img-fluid rounded-circle">
-                                </a>
-                                <ul class="blog-meta">
-                                    <li>
-                                        <span class="meta-value">Toko</span><a href="#author"> berasku</a>
-                                    </li>
-                                </ul>
+                                
+                               
                                 <div class="date">
-                                    <p>8.000/kg</p>
+                                    <p>RP 16.000</p>
                                 </div>
                             </div>
                         </div>
