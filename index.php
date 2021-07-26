@@ -23,7 +23,7 @@ include ("config.php");
       <nav class="navbar navbar-expand-lg navbar-dark stroke">
         <h1>
           <a class="navbar-brand" href="index.php?menu=home">
-            <span class="fa fa-align-right"></span>Toko Cahaya <span class="logo">Terlengkap dan Terpercaya</span></a>
+            <span class="fa fa-align-right"></span>Bakso Yamin Kang Iim <span class="logo"> Mantap membahana</span></a>
         </h1>
   
         <!-- if logo is image enable this   

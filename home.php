@@ -5,8 +5,8 @@
             <div class="container">
                 <div class="hero-content">
                     <h1 data-animation="flipInX" data-delay="0.8s" data-color="#fff">
-                        COD di Toko Cahaya bisa bayar di tempat</h1>
-                    <p data-animation="fadeInDown" class="mt-4">Pesan hari ini, Barang sampai Hari ini </p>
+                    Bakso Special Kang Iim</h1>
+                    <p data-animation="fadeInDown" class="mt-4">Cobain Bakso Special Kang Iim, rasa daging bakso yang lembut bakal bikin kamu ketagihan! </p>
                 </div>
             </div>
             <div class="hero-overlay"></div>
@@ -17,9 +17,9 @@
             <div class="container">
                 <div class="hero-content">
                     <h1 data-animation="fadeInDown" data-delay="0.8s" data-color="#fff">
-                        Beli kebutuhan sekarang lebih mudah
+                       Yamin Top Kang Iim
                     </h1>
-                    <p data-animation="fadeInDown" class="mt-4"> Berbelanja kini tinggal sekali klik </p>
+                    <p data-animation="fadeInDown" class="mt-4"> Rasa gurih dan kenyal dari Yamin Top Kang Iim akan menghibur lidah dan perut kamu! </p>
                 </div>
             </div>
             <div class="hero-overlay"></div>
@@ -29,8 +29,8 @@
         <div class="banner-slide bg3">
             <div class="container">
                 <div class="hero-content">
-                    <h1 data-animation="fadeInUp" data-color="#fff" data-delay="0.8s">Diskon sampai 70% untuk barang elektronik</h1>
-                    <p data-animation="fadeInUp" class="mt-4">. </p>
+                    <h1 data-animation="fadeInUp" data-color="#fff" data-delay="0.8s">Toping Variatif</h1>
+                    <p data-animation="fadeInUp" class="mt-4">Toping Tambahan yang dapat melipat gandakan kenikmatan. </p>
                 </div>
             </div>
             <div class="hero-overlay"></div>
@@ -40,8 +40,8 @@
         <div class="banner-slide bg4">
             <div class="container">
                 <div class="hero-content">
-                    <h1 data-animation="flipInX" data-color="#fff" data-delay="0.8s">Sayur dan Buah segar langsung dari petani</h1>
-                    <p data-animation="fadeInDown" class="mt-4">Dipanen di perkebunan dan pertanian terbaik </p>
+                    <h1 data-animation="flipInX" data-color="#fff" data-delay="0.8s">Mie Ayam Istimewa</h1>
+                    <p data-animation="fadeInDown" class="mt-4">Kamu lebihsuka Mie Ayam? tenang Kang Iim juga punya mie ayam yang gakalah enaknya </p>
                 </div>
             </div>
             <div class="hero-overlay"></div>
@@ -68,12 +68,13 @@
             <div class="row align-items-center">
                 <div class="col-lg-6">
                     <span class="title-small">Tentang Kami</span>
-                    <h3 class="title-big">Kami menyediakan produk berkualitas dengan harga pas</h3>
-                    <p class="mt-md-4 mt-3">pada masa pandemi ini lebih baik untuk menghindari kerumunan, oleh karenan itu kami menyediakan kebutuhan harian anda agar dapat berbelanja dengan nyaman dari rumah </p>
+                    <h3 class="title-big">Kami menyediakan produk bintang lima harga kaki lima</h3>
+                    <p class="mt-md-4 mt-3">Siapa yang tidak mengenal bakso? Makanan dari Indonesia ini telah dikenal baik di dalam dan di luar negeri, dengan rasanya yang khas, pas untuk menemani santap Anda di manapun dan kapanpun.
+                        Bagi kami, kesan Anda sangatlah berarti. Untuk itu kami selalu berusaha mewujudkan pengalaman Ngebakso anda yang nikmat dengan melalui proses Terstandarisasi Halal dan Higienis. Sehingga Anda dan Keluarga tak perlu lagi ragu untuk menyantap Bakso yang berkualitas dari kami.  </p>
                     <ul class="service-list pt-lg-2 mt-4">
-                        <li class="service-link"><a href="#url"><span class="fa fa-check-circle"></span> Produk terlengkap</a></li>
-                        <li class="service-link"><a href="#url"><span class="fa fa-check-circle"></span> Produk berkualitas, harga pas</a></li>
-                        <li class="service-link"><a href="#url"><span class="fa fa-check-circle"></span> Transaksi aman</a></li>
+                        <li class="service-link"><a href="#url"><span class="fa fa-check-circle"></span> Bakso dengan Daging Berkualitas</a></li>
+                        <li class="service-link"><a href="#url"><span class="fa fa-check-circle"></span> Rasa berkualitas, harga pas</a></li>
+                        <li class="service-link"><a href="#url"><span class="fa fa-check-circle"></span> Higienis dan ekonomis</a></li>
                     </ul>
                 </div>
                 <div class="HomeAboutImages col-lg-6 mt-lg-0 mt-md-5 mt-4">
@@ -98,37 +99,37 @@
 <div class="w3l-servicesblock2" id="services">
     <section id="grids5-block" class="py-5">
         <div class="container py-lg-5 py-md-4 py-2">
-            <h3 class="title-big text-center">Kategori</h3>
+            <h3 class="title-big text-center">Menu Bakso Yamin Kang Iim</h3>
             <div class="row mt-lg-5 mt-4 text-center">
                 <div class="col-lg-4 col-md-6">
                     <div class="grids5-info">
-                        <a href="#service" class="d-block zoom"><img src="<?=base_url?>assets/images/beras.jpg" alt=""
+                        <a href="#service" class="d-block zoom"><img src="<?=base_url?>assets/images/bks6.jpeg" alt=""
                                 class="img-fluid service-image" /></a>
                         <div class="blog-info">
-                            <a href="#service" class="title">Beras</a>
-                            <p class="text-para"> Beras berkualitas</p>
+                            <a href="#service" class="title">Bakso Spesial</a>
+                            <p class="text-para"> Bakso daging sapi, Mie Bihun, Mie kuning, Sawi</p>
                         </div>
                         <a href="#learnmore" class="btn btn-style1 mt-3">Selengkapnya</a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 mt-md-0 mt-5">
                     <div class="grids5-info">
-                        <a href="#service" class="d-block zoom"><img src="<?=base_url?>assets/images/daging.jpg" alt=""
+                        <a href="#service" class="d-block zoom"><img src="<?=base_url?>assets/images/bks8.png" alt=""
                                 class="img-fluid service-image" /></a>
                         <div class="blog-info">
-                            <a href="#service" class="title">Daging</a>
-                            <p class="text-para"> Daging sapi, kambing, ayam</p>
+                            <a href="#service" class="title">Mie Ayam</a>
+                            <p class="text-para"> Mie ayam spesial yang gurih sangat cocok dutambah toping bakso</p>
                         </div>
                         <a href="#learnmore" class="btn btn-style1 mt-3">Selengkapnya</a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 mt-lg-0 mt-5">
                     <div class="grids5-info">
-                        <a href="#service" class="d-block zoom"><img src="<?=base_url?>assets/images/sayuran.jpg" alt=""
+                        <a href="#service" class="d-block zoom"><img src="<?=base_url?>assets/images/bks1.jpeg" alt=""
                                 class="img-fluid service-image" /></a>
                         <div class="blog-info">
-                            <a href="#service" class="title">Sayuran</a>
-                            <p class="text-para"> Sayur segar</p>
+                            <a href="#service" class="title">Bakso Yamin</a>
+                            <p class="text-para">Bakso Yamin yang mantap</p>
                         </div>
                         <a href="#learnmore" class="btn btn-style1 mt-3">Selengkapnya</a>
                     </div>
