@@ -12,12 +12,12 @@ class keranjang extends Backend{
         $data['judul']  = "Keranjang";
         $data['url']    = "admin";
         if (@count($_SESSION['cart']) > 0){
-            $data['dataUsers']      = $this->con->query('SELECT * FROM tb_users WHERE users_id="'.$_SESSION['users_id'].'"')->fetch_object();
-            $data['dataCompany']    = $this->con->query("SELECT * FROM tb_include")->fetch_object();
+            $data['dataUsers']      = $this->con->query('SELECT * FROM tb_pengguna WHERE users_id="'.$_SESSION['users_id'].'"')->fetch_object();
+            $data['dataCompany']    = $this->con->query("SELECT * FROM tb_website")->fetch_object();
             if ($_SESSION['role_id'] == "0"){
-                $data['dataNotifikasi']   = $this->con->query('SELECT * FROM tb_orders WHERE bukti_transaksi != "" ORDER BY orders_date DESC');
+                $data['dataNotifikasi']   = $this->con->query('SELECT * FROM tb_pembelian WHERE bukti_transaksi != "" ORDER BY orders_date DESC');
             }else{
-                $data['dataNotifikasi']   = $this->con->query('SELECT * FROM tb_orders WHERE status_pengiriman="1" AND  users_id="'.$_SESSION['users_id'].'"');
+                $data['dataNotifikasi']   = $this->con->query('SELECT * FROM tb_pembelian WHERE status_pengiriman="1" AND  users_id="'.$_SESSION['users_id'].'"');
             }
     
             echo $this->views("keranjang/list.php", $data);
@@ -28,12 +28,12 @@ class keranjang extends Backend{
     function checkout(){
         $data['judul']  = "Checkout";
         $data['url']    = "admin";
-        $data['dataUsers']      = $this->con->query('SELECT * FROM tb_users WHERE users_id="'.$_SESSION['users_id'].'"')->fetch_object();
-        $data['dataCompany']    = $this->con->query("SELECT * FROM tb_include")->fetch_object();
+        $data['dataUsers']      = $this->con->query('SELECT * FROM tb_pengguna WHERE users_id="'.$_SESSION['users_id'].'"')->fetch_object();
+        $data['dataCompany']    = $this->con->query("SELECT * FROM tb_website")->fetch_object();
         if ($_SESSION['role_id'] == "0"){
-            $data['dataNotifikasi']   = $this->con->query('SELECT * FROM tb_orders WHERE status="paid"');
+            $data['dataNotifikasi']   = $this->con->query('SELECT * FROM tb_pembelian WHERE status="paid"');
         }else{
-            $data['dataNotifikasi']   = $this->con->query('SELECT * FROM tb_orders WHERE status_pengiriman="1" AND  users_id="'.$_SESSION['users_id'].'"');
+            $data['dataNotifikasi']   = $this->con->query('SELECT * FROM tb_pembelian WHERE status_pengiriman="1" AND  users_id="'.$_SESSION['users_id'].'"');
         }
 
         
@@ -54,15 +54,15 @@ class keranjang extends Backend{
                 $status = "paid";
                 
                 $bonusPoint = 300;
-                $points = $this->con->query("SELECT * FROM tb_users WHERE users_id='".$_SESSION['users_id']."'")->fetch_object()->points;
+                $points = $this->con->query("SELECT * FROM tb_pengguna WHERE users_id='".$_SESSION['users_id']."'")->fetch_object()->points;
                 $point = $points + 300;
 
-                $this->con->query("UPDATE tb_users SET points='".$point."' WHERE users_id='".$_SESSION['users_id']."'");
+                $this->con->query("UPDATE tb_pengguna SET points='".$point."' WHERE users_id='".$_SESSION['users_id']."'");
             }
         }
-        $dataUsers      = $this->con->query('SELECT * FROM tb_users WHERE users_id="'.$_SESSION['users_id'].'"')->fetch_object();
+        $dataUsers      = $this->con->query('SELECT * FROM tb_pengguna WHERE users_id="'.$_SESSION['users_id'].'"')->fetch_object();
         $invoices_id = $this->generateInvoice();
-        $result = $this->con->query("INSERT INTO tb_orders
+        $result = $this->con->query("INSERT INTO tb_pembelian
                                     (invoices_id, users_id, voucher_kode, orders_nama, orders_alamat, orders_kodepos, orders_notelp, orders_totalharga, tipe_pembayaran, orders_date, orders_duedate, status)
                                     VALUES (
                                     '".$invoices_id."',
@@ -77,10 +77,10 @@ class keranjang extends Backend{
                                     '".date('Y-m-d H:i:s')."',
                                     '".date('Y-m-d H:i:s', mktime( date('H'),date('i'),date('s'),date('m'),date('d') + 1,date('Y')))."',
                                     '".$status."')");
-        $orders_id  = $this->con->query("SELECT * FROM tb_orders ORDER BY orders_id DESC")->fetch_object()->orders_id;
+        $orders_id  = $this->con->query("SELECT * FROM tb_pembelian ORDER BY orders_id DESC")->fetch_object()->orders_id;
         if ($result){
             for ($i = 0; $i < count($_SESSION['cart']); $i++){
-                $response = $this->con->query("INSERT INTO tb_orders_detail (orders_id, produk_id, kuantitas) VALUES('".$orders_id."', '".$_SESSION['cart'][$i]['produk_id']."', '".$_SESSION['cart'][$i]['kuantitas']."')");
+                $response = $this->con->query("INSERT INTO tb_pembelian_detail (orders_id, produk_id, kuantitas) VALUES('".$orders_id."', '".$_SESSION['cart'][$i]['produk_id']."', '".$_SESSION['cart'][$i]['kuantitas']."')");
             }
             unset($_SESSION['cart']);
             unset($_SESSION['cartAll']);
@@ -92,7 +92,7 @@ class keranjang extends Backend{
     }
     
 	public function generateInvoice(){
-		$data = $this->con->query("SELECT * FROM tb_orders ORDER BY invoices_id DESC")->fetch_object();
+		$data = $this->con->query("SELECT * FROM tb_pembelian ORDER BY invoices_id DESC")->fetch_object();
 		if (!empty($data->invoices_id)){
 			$angka = substr($data->invoices_id, 9) +1;
 			$nol   = "";

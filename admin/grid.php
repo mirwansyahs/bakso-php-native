@@ -6,7 +6,7 @@ class Produk extends Backend{
         if (@$_SESSION['users_id'] == ""){
             echo "<meta http-equiv='refresh' content='0;../fLogin.php'>";
         }else{
-            $data['dataUsers']      = $this->con->query('SELECT * FROM tb_users WHERE users_id="'.$_SESSION['users_id'].'"')->fetch_object();
+            $data['dataUsers']      = $this->con->query('SELECT * FROM tb_pengguna WHERE users_id="'.$_SESSION['users_id'].'"')->fetch_object();
             if ($data['dataUsers']->nomortelp == "" || $data['dataUsers']->tempat_lahir == "" || $data['dataUsers']->tanggal_lahir == "" ||     $data['dataUsers']->alamat == "" || $data['dataUsers']->kode_pos == ""){
                 $this->redirect('profile.php?aksi=edit');
             }
@@ -17,9 +17,9 @@ class Produk extends Backend{
         $data['judul']  = "Katalog";
         $data['value']  = $this->con->query('SELECT * FROM tb_produk');
         if ($_SESSION['role_id'] == "0"){
-            $data['dataNotifikasi']   = $this->con->query('SELECT * FROM tb_orders WHERE bukti_transaksi != "" ORDER BY orders_date DESC');
+            $data['dataNotifikasi']   = $this->con->query('SELECT * FROM tb_pembelian WHERE bukti_transaksi != "" ORDER BY orders_date DESC');
         }else{
-            $data['dataNotifikasi']   = $this->con->query('SELECT * FROM tb_orders WHERE status_pengiriman="1" AND  users_id="'.$_SESSION['users_id'].'"');
+            $data['dataNotifikasi']   = $this->con->query('SELECT * FROM tb_pembelian WHERE status_pengiriman="1" AND  users_id="'.$_SESSION['users_id'].'"');
         }
 
         echo $this->views("detail/grid.php", $data);

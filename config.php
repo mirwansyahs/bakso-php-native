@@ -4,14 +4,14 @@
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
     
-    const base_url      = "http://localhost/bakso/";
+    const base_url      = "http://localhost/bakso-php-native/";
     const base_name     = "Bakso Yamin Kang Iim";
     const favicon       = "AdminLTELogo.png";
 
     const hostname   = "localhost";
     const username   = "root";
     const password   = "";
-    const database   = "spt_crm";
+    const database   = "db_bakso";
 
     class Config{
         public $con;
