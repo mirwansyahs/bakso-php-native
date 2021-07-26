@@ -80,11 +80,11 @@
                 <div class="HomeAboutImages col-lg-6 mt-lg-0 mt-md-5 mt-4">
                     <div class="row position-relative">
                         <div class="col-6">    
-                        <img src="<?=base_url?>assets/images/karyawan.jpg" alt="" class="radius-image img-fluid">
+                        <img src="<?=base_url?>assets/images/tkb1.jpg" alt="" class="radius-image img-fluid">
                         </div>
                         <div class="col-6 mt-4">    
-                            <img src="<?=base_url?>assets/images/karyawan2.jpg" alt="" class="radius-image img-fluid mb-md-3 mb-2">
-                            <img src="<?=base_url?>assets/images/karyawan3.jpeg" alt="" class="radius-image img-fluid mt-md-3">
+                            <img src="<?=base_url?>assets/images/tkb2.jpeg" alt="" class="radius-image img-fluid mb-md-3 mb-2">
+                            <img src="<?=base_url?>assets/images/bks6.jpeg" alt="" class="radius-image img-fluid mt-md-3">
                         </div>
                     </div>
                 </div>
@@ -134,39 +134,7 @@
                         <a href="#learnmore" class="btn btn-style1 mt-3">Selengkapnya</a>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 mt-lg-0 mt-5">
-                    <div class="grids5-info">
-                        <a href="#service" class="d-block zoom"><img src="<?=base_url?>assets/images/gula.jpg" alt=""
-                                class="img-fluid service-image" /></a>
-                        <div class="blog-info">
-                            <a href="#service" class="title">Gula dan Garam</a>
-                            <p class="text-para">Gula merah, Gula putih</p>
-                        </div>
-                        <a href="#learnmore" class="btn btn-style1 mt-3">Selengkapnya</a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mt-lg-0 mt-5">
-                    <div class="grids5-info">
-                        <a href="#service" class="d-block zoom"><img src="<?=base_url?>assets/images/telur.jpg" alt=""
-                                class="img-fluid service-image" /></a>
-                        <div class="blog-info">
-                            <a href="#service" class="title">Telur</a>
-                            <p class="text-para"> Telur ayam, Telur bebek</p>
-                        </div>
-                        <a href="#learnmore" class="btn btn-style1 mt-3">Selengkapnya</a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mt-lg-0 mt-5">
-                    <div class="grids5-info">
-                        <a href="#service" class="d-block zoom"><img src="<?=base_url?>assets/images/bumbu.jpg" alt=""
-                                class="img-fluid service-image" /></a>
-                        <div class="blog-info">
-                            <a href="#service" class="title">Bumbu dapur</a>
-                            <p class="text-para">Bawang, cabe, lada, dll</p>
-                        </div>
-                        <a href="#learnmore" class="btn btn-style1 mt-3">Selengkapnya</a>
-                    </div>
-                </div>
+               
             </div>
         </div>
     </section>
@@ -175,94 +143,6 @@
 
 
 
-
-<section class="w3l-blog">
-    <div class="blog py-5" id="Newsblog">
-        <div class="container py-lg-5 py-md-4 py-2">
-            <h5 class="title-small text-center mb-1"></h5>
-            <h3 class="title-big text-center mb-sm-5 mb-4">Menu favorite</h3>
-            <div class="row">
-                <div class="col-lg-4 col-md-6 item">
-                    <div class="card">
-                        <div class="card-header p-0 position-relative">
-                            <a href="#blog-single" class="zoom d-block">
-                                <img class="card-img-bottom d-block" src="<?=base_url?>assets/images/bks6.jpeg"
-                                    alt="Card image cap">
-                            </a>
-                        </div>
-                        <div class="card-body blog-details">
-                            <div class="price-review d-flex justify-content-between mb-1 align-items-center">
-                                <p>Bakso Spesial</p>
-                            </div>
-                            <a href="#blog-single" class="blog-desc">Bakso Spesial </a>
-                        </div>
-                        <div class="card-footer">
-                            <div class="author align-items-center">
-                                
-                               
-                                <div class="date">
-                                    <p>RP 16.000</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 item">
-                    <div class="card">
-                        <div class="card-header p-0 position-relative">
-                            <a href="#blog-single" class="zoom d-block">
-                                <img class="card-img-bottom d-block" src="<?=base_url?>assets/images/bks6.jpeg"
-                                    alt="Card image cap">
-                            </a>
-                        </div>
-                        <div class="card-body blog-details">
-                            <div class="price-review d-flex justify-content-between mb-1 align-items-center">
-                                <p>Bakso Spesial</p>
-                            </div>
-                            <a href="#blog-single" class="blog-desc">Bakso Spesial </a>
-                        </div>
-                        <div class="card-footer">
-                            <div class="author align-items-center">
-                                
-                               
-                                <div class="date">
-                                    <p>RP 16.000</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 item">
-                    <div class="card">
-                        <div class="card-header p-0 position-relative">
-                            <a href="#blog-single" class="zoom d-block">
-                                <img class="card-img-bottom d-block" src="<?=base_url?>assets/images/bks6.jpeg"
-                                    alt="Card image cap">
-                            </a>
-                        </div>
-                        <div class="card-body blog-details">
-                            <div class="price-review d-flex justify-content-between mb-1 align-items-center">
-                                <p>Bakso Spesial</p>
-                            </div>
-                            <a href="#blog-single" class="blog-desc">Bakso Spesial </a>
-                        </div>
-                        <div class="card-footer">
-                            <div class="author align-items-center">
-                                
-                               
-                                <div class="date">
-                                    <p>RP 16.000</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 <!-- testimonials -->
 <section class="w3l-testimonials" id="testimonials">
     <!-- /grids -->
@@ -278,7 +158,7 @@
                         <div class="testimonial-content">
                             <div class="testimonial">
                                 <blockquote>
-                                    <q>Mantap banget, sangat mempermudah belanja</q>
+                                    <q>Sangat Enak dan baksonya tidak mengecewakan</q>
                                 </blockquote>
                                 <div class="testi-des">
                                     <div class="test-img"><img src="<?=base_url?>assets/images/team1.jpg" class="img-fluid"
@@ -296,7 +176,7 @@
                         <div class="testimonial-content">
                             <div class="testimonial">
                                 <blockquote>
-                                    <q>Keren, barang berkualitas harga pas</q>
+                                    <q>Mantap banget, murah lagi</q>
                                 </blockquote>
                                 <div class="testi-des">
                                     <div class="test-img"><img src="<?=base_url?>assets/images/team2.jpg" class="img-fluid"
@@ -314,7 +194,7 @@
                         <div class="testimonial-content">
                             <div class="testimonial">
                                 <blockquote>
-                                    <q>Pas banget buat aku yang mager keluar buat belanja.</q>
+                                    <q>Rasa nikmat, harga cocok buat kantong mahasiswa.</q>
                                 </blockquote>
                                 <div class="testi-des">
                                     <div class="test-img"><img src="<?=base_url?>assets/images/team3.jpg" class="img-fluid"
