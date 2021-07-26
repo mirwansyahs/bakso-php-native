@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 26, 2021 at 07:05 PM
+-- Generation Time: Jul 26, 2021 at 09:47 PM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 7.3.28
 
@@ -35,6 +35,32 @@ CREATE TABLE `pesan_keluar` (
   `Id_Penerima` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `pesan_keluar`
+--
+
+INSERT INTO `pesan_keluar` (`IdPesanKeluar`, `Id_Pengirim`, `TanggalKirim`, `IsiPesan`, `Id_Penerima`) VALUES
+(3, 22, '2021-07-27 01:37:00', 'Hwllo', 1),
+(4, 22, '2021-07-27 01:37:00', 'Cek lagi', 1),
+(6, 1, '2021-07-27 01:44:00', 'Hehe', 22),
+(7, 1, '2021-07-27 02:02:00', 'xixixi', 22),
+(8, 1, '2021-07-27 02:04:00', 'Xixixi', 22),
+(9, 22, '2021-07-27 02:17:00', 'wah', 1),
+(10, 22, '2021-07-27 02:18:00', 'hmm', 1),
+(11, 22, '2021-07-27 02:20:00', 'asksksk', 1),
+(12, 22, '2021-07-27 02:24:00', 'helo', 1),
+(13, 22, '2021-07-27 02:25:00', 'coba laig', 1),
+(14, 22, '2021-07-27 02:30:00', 'Hello', 1),
+(15, 22, '2021-07-27 02:32:00', 'Yayayaya', 1),
+(16, 22, '2021-07-27 02:33:00', 'Oke deh', 1),
+(17, 22, '2021-07-27 02:35:00', 'Come on', 1),
+(18, 22, '2021-07-27 02:35:00', 'asdsad', 1),
+(19, 22, '2021-07-27 02:40:00', 'Wahhh', 1),
+(20, 22, '2021-07-27 02:41:00', 'Oke ga nips', 1),
+(21, 22, '2021-07-27 02:42:00', 'Wah mantul', 1),
+(23, 1, '2021-07-27 02:45:00', 'Mantep banget, udah banyak', 22),
+(24, 22, '2021-07-27 02:45:00', 'Xixixi iya nihhh', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -48,6 +74,34 @@ CREATE TABLE `pesan_masuk` (
   `IsiPesan` longtext COLLATE latin1_general_ci NOT NULL,
   `Id_Penerima` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+
+--
+-- Dumping data for table `pesan_masuk`
+--
+
+INSERT INTO `pesan_masuk` (`IdPesanMasuk`, `Id_Pengirim`, `TanggalKirim`, `IsiPesan`, `Id_Penerima`) VALUES
+(2, 23, '2021-07-26 19:34:34', 'Hallow everybadeh', 1),
+(5, 22, '2021-07-27 01:37:00', 'Hwllo', 1),
+(6, 22, '2021-07-27 01:37:00', 'Cek lagi', 1),
+(7, 1, '2021-07-27 01:42:00', 'Iya Ada apa ya?', 1),
+(8, 1, '2021-07-27 01:44:00', 'Hehe', 22),
+(9, 1, '2021-07-27 02:02:00', 'xixixi', 22),
+(10, 1, '2021-07-27 02:04:00', 'Xixixi', 22),
+(11, 22, '2021-07-27 02:17:00', 'wah', 1),
+(12, 22, '2021-07-27 02:18:00', 'hmm', 1),
+(13, 22, '2021-07-27 02:20:00', 'asksksk', 1),
+(14, 22, '2021-07-27 02:24:00', 'helo', 1),
+(15, 22, '2021-07-27 02:25:00', 'coba laig', 1),
+(16, 22, '2021-07-27 02:30:00', 'Hello', 1),
+(17, 22, '2021-07-27 02:32:00', 'Yayayaya', 1),
+(18, 22, '2021-07-27 02:33:00', 'Oke deh', 1),
+(19, 22, '2021-07-27 02:35:00', 'Come on', 1),
+(20, 22, '2021-07-27 02:35:00', 'asdsad', 1),
+(21, 22, '2021-07-27 02:40:00', 'Wahhh', 1),
+(22, 22, '2021-07-27 02:41:00', 'Oke ga nips', 1),
+(23, 22, '2021-07-27 02:42:00', 'Wah mantul', 1),
+(25, 1, '2021-07-27 02:45:00', 'Mantep banget, udah banyak', 22),
+(26, 22, '2021-07-27 02:45:00', 'Xixixi iya nihhh', 1);
 
 -- --------------------------------------------------------
 
@@ -334,13 +388,13 @@ ALTER TABLE `tb_website`
 -- AUTO_INCREMENT for table `pesan_keluar`
 --
 ALTER TABLE `pesan_keluar`
-  MODIFY `IdPesanKeluar` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `IdPesanKeluar` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `pesan_masuk`
 --
 ALTER TABLE `pesan_masuk`
-  MODIFY `IdPesanMasuk` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `IdPesanMasuk` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `tb_pembelian`

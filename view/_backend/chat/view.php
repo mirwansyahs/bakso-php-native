@@ -1,88 +1,151 @@
+<script>
+	function Url(param = null){
+
+		if (param !== null){
+			var url = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+			var vars = [], hash;
+			for (var i =0; i < url.length; i++){
+				hash = url[i].split('=');
+				vars.push(hash[0]);
+				vars[hash[0]] = hash[1];
+			}
+			return vars[param];
+		}else{
+			return null;
+		}
+	}
+
+    function tgl(){
+        var tgl = new Date();
+        var hari = tgl.getDate();
+        var bulan = tgl.getMonth()+1;
+        var thn = tgl.getFullYear();
+        var tglskrg = thn+"-"+bulan+"-"+hari;
+
+        return tglskrg;
+    }
+
+    var tnama = 0;
+    var pesanakhir = 0;
+    var timer;
+
+    function ambilPesan() {
+        var pengirim = Url("id");
+        let html = "";
+        $.get("<?=base_url?>admin/chat.php?aksi=s_pesanmasuk&akhir="+pesanakhir+ "&pengirim="+pengirim, "", function(data){
+            data = JSON.parse(data);
+            for(i=0;i<data.data.length;i++){
+                html += data.data[i];
+            }
+
+            $('#chatMsg').html(html);
+            
+            timer = setTimeout("ambilPesan()",2000);
+        });
+    }
+
+
+    function kirimPesan() {
+        pesannya = document.getElementById("IsiPesan").value
+        namaku = Url("id")
+        if(pesannya != "" && namaku != "") {
+            $.get("<?=base_url?>admin/chat.php?aksi=kirim_pesanmasuk&user="+namaku+"&akhir="+pesanakhir+"&pesan="+pesannya+"&sid="+Math.random(), "", function(data){
+                ambilPesan(); 
+                $('#IsiPesan').val("");
+            });
+        }else {
+            alert("Nama atau pesan masih kosong");
+        }
+    }
+
+    function aturKirimPesan() {
+        clearInterval(timer);
+        ambilPesan();
+    }
+
+    function blockSubmit() {
+        kirimPesan();
+        return false;
+    }
+
+    aturKirimPesan();
+</script>
+
 <div class="col-md-12">
     <!-- DIRECT CHAT SUCCESS -->
     <div class="card card-success card-outline direct-chat direct-chat-success">
         <div class="card-header">
-            <h3 class="card-title">Direct Chat</h3>
+            <h3 class="card-title">
+                <?php
+                    if ($_SESSION['role_id'] == "0"){
+                        $card_title = "User";
+                    }else{
+                        $card_title = "Admin";
+                    }
 
-            <div class="card-tools">
-                <span title="3 New Messages" class="badge bg-success">3</span>
-                <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                    <i class="fas fa-minus"></i>
-                </button>
-                <button type="button" class="btn btn-tool" title="Contacts" data-widget="chat-pane-toggle">
-                    <i class="fas fa-comments"></i>
-                </button>
-                <button type="button" class="btn btn-tool" data-card-widget="remove">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
+                    echo "Chatting with ".$card_title;
+                ?>
+            </h3>
+
         </div>
         <!-- /.card-header -->
+
+        <?php
+            if ($_SESSION['role_id'] == "0"){
+                $idPengirim = $_GET['id'];
+                $dataValue = $this->con->query("SELECT * 
+                FROM pesan_masuk, tb_pengguna 
+                WHERE pesan_masuk.Id_Pengirim=tb_pengguna.users_id 
+                AND pesan_masuk.Id_Pengirim='".$idPengirim."'
+                AND pesan_masuk.Id_Penerima='".$_SESSION['users_id']."'
+                OR pesan_masuk.Id_Pengirim=tb_pengguna.users_id  
+                AND pesan_masuk.Id_Penerima='".$idPengirim."'
+                AND pesan_masuk.Id_Pengirim='".$_SESSION['users_id']."'
+                ORDER BY pesan_masuk.TanggalKirim ASC");
+            }else{
+                $dataAdmin  = $this->con->query("SELECT * FROM tb_pengguna WHERE role_id='0'")->fetch_object();
+                $idPengirim = $dataAdmin->users_id;
+                $dataValue = $this->con->query("SELECT * 
+                FROM pesan_masuk, tb_pengguna 
+                WHERE pesan_masuk.Id_Pengirim=tb_pengguna.users_id 
+                AND pesan_masuk.Id_Pengirim='".$_SESSION['users_id']."'
+                AND pesan_masuk.Id_Penerima='".$idPengirim."'
+                OR pesan_masuk.Id_Pengirim=tb_pengguna.users_id  
+                AND pesan_masuk.Id_Penerima='".$_SESSION['users_id']."'
+                AND pesan_masuk.Id_Pengirim='".$idPengirim."'
+                ORDER BY pesan_masuk.TanggalKirim ASC");
+            }
+            
+        ?>
         <div class="card-body">
             <!-- Conversations are loaded here -->
-            <div class="direct-chat-messages">
-                <!-- Message. Default to the left -->
-                <div class="direct-chat-msg">
-                    <div class="direct-chat-infos clearfix">
-                        <span class="direct-chat-name float-left">Alexander Pierce</span>
-                        <span class="direct-chat-timestamp float-right">23 Jan 2:00 pm</span>
+            <div class="direct-chat-messages" id="chatMsg" style="height: 370px">
+                <?php 
+                    while($key = $dataValue->fetch_object()){ 
+                        
+                        $leftRight = ($key->Id_Pengirim == $_SESSION['users_id'])?'right':'left';
+                        $reverse = ($leftRight == 'right')?'left':'right';
+                ?>
+                    <div class="direct-chat-msg">
+                        <div class="direct-chat-infos clearfix">
+                            <span class="direct-chat-name float-<?=$leftRight?>"><?=$key->users_nama?></span>
+                            <span class="direct-chat-timestamp float-<?=$reverse?>"><?=$key->TanggalKirim?></span>
+                        </div>
+                        <img class="direct-chat-img" src="<?=base_url?>assets/back/img/<?=($key->image != "")?$key->image:'avatar5.png'?>" alt="Message User Image">
+                        <div class="direct-chat-text">
+                            <?=htmlspecialchars_decode($key->IsiPesan)?>
+                        </div>
                     </div>
-                    <!-- /.direct-chat-infos -->
-                    <img class="direct-chat-img" src="../dist/img/user1-128x128.jpg" alt="Message User Image">
-                    <!-- /.direct-chat-img -->
-                    <div class="direct-chat-text">
-                        Is this template really for free? That's unbelievable!
-                    </div>
-                    <!-- /.direct-chat-text -->
-                </div>
-                <!-- /.direct-chat-msg -->
-
-                <!-- Message to the right -->
-                <div class="direct-chat-msg right">
-                    <div class="direct-chat-infos clearfix">
-                        <span class="direct-chat-name float-right">Sarah Bullock</span>
-                        <span class="direct-chat-timestamp float-left">23 Jan 2:05 pm</span>
-                    </div>
-                    <!-- /.direct-chat-infos -->
-                    <img class="direct-chat-img" src="../dist/img/user3-128x128.jpg" alt="Message User Image">
-                    <!-- /.direct-chat-img -->
-                    <div class="direct-chat-text">
-                        You better believe it!
-                    </div>
-                    <!-- /.direct-chat-text -->
-                </div>
-                <!-- /.direct-chat-msg -->
+                <?php } ?>
             </div>
             <!--/.direct-chat-messages-->
 
-            <!-- Contacts are loaded here -->
-            <div class="direct-chat-contacts">
-                <ul class="contacts-list">
-                    <li>
-                        <a href="#">
-                            <img class="contacts-list-img" src="../dist/img/user1-128x128.jpg" alt="User Avatar">
-
-                            <div class="contacts-list-info">
-                                <span class="contacts-list-name">
-                                    Count Dracula
-                                    <small class="contacts-list-date float-right">2/28/2015</small>
-                                </span>
-                                <span class="contacts-list-msg">How have you been? I was...</span>
-                            </div>
-                            <!-- /.contacts-list-info -->
-                        </a>
-                    </li>
-                    <!-- End Contact Item -->
-                </ul>
-                <!-- /.contatcts-list -->
-            </div>
-            <!-- /.direct-chat-pane -->
         </div>
         <!-- /.card-body -->
         <div class="card-footer">
-            <form action="#" method="post">
+            <form onSubmit="return blockSubmit();">
                 <div class="input-group">
-                    <input type="text" name="message" placeholder="Type Message ..." class="form-control">
+                    <input type="text" name="IsiPesan" id="IsiPesan" placeholder="Type Message ..." class="form-control">
                     <span class="input-group-append">
                         <button type="submit" class="btn btn-success">Send</button>
                     </span>
