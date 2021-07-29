@@ -8,7 +8,7 @@ if (@$_POST['registerProses']){
     var_dump($_POST);
     $password = sha1(md5($password));
     $config = new Config();
-    $saveData = $config->con->query("INSERT INTO tb_users(users_nama, email, password, role_id) VALUES('".$users_nama."', '".$email."', '".$password."', 2)");
+    $saveData = $config->con->query("INSERT INTO tb_pengguna(users_nama, email, password, role_id) VALUES('".$users_nama."', '".$email."', '".$password."', 2)");
     if ($saveData){
         header("location:fLogin.php?status=succ&msg=Pendaftaran berhasil!", true, 301);
     }else{

@@ -18,10 +18,10 @@
                 <div class="col-sm-4 invoice-col">
                     From
                     <address>
-                        <strong><?=$data['dataCompany']->CompanyName?></strong><br>
-                        <?=$data['dataCompany']->CompanyAddress?><br>
-                        Phone: <?=$data['dataCompany']->PhoneNumber?><br>
-                        Email: <?=$data['dataCompany']->CompanyEmail?>
+                        <strong><?=$data['dataCompany']->nama?></strong><br>
+                        <?=$data['dataCompany']->alamat?><br>
+                        Phone: <?=$data['dataCompany']->notelp?><br>
+                        Email: <?=$data['dataCompany']->email?>
                     </address>
                 </div>
                 <!-- /.col -->
@@ -31,7 +31,7 @@
                         <strong><?=$data['value']->orders_nama?></strong><br>
                         <?=$data['value']->orders_alamat?> <?=$data['value']->orders_kodepos?><br>
                         Phone: <?=$data['value']->orders_notelp?><br>
-                        Email: <?=@$this->con->query("SELECT * FROM tb_users WHERE users_id='".$data['value']->users_id."'")->fetch_object()->email?>
+                        Email: <?=@$this->con->query("SELECT * FROM tb_pengguna WHERE users_id='".$data['value']->users_id."'")->fetch_object()->email?>
                     </address>
                 </div>
                 <!-- /.col -->
@@ -84,13 +84,13 @@
                         <?=ucwords($data['value']->tipe_pembayaran)?>
                         <br/>
                         <center>
-                        <?=$data['dataCompany']->BankName?>
+                        <?=$data['dataCompany']->namabank?>
                         <br/>
-                        <?=$data['dataCompany']->Wallet?>
+                        <?=$data['dataCompany']->norek?>
                         <br/>
                         a/n
                         <br/>
-                        <?=$data['dataCompany']->AtasNama?>
+                        <?=$data['dataCompany']->atasnama?>
                         </center>
                     </p>
                 </div>

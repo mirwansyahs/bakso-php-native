@@ -16,7 +16,7 @@ class chat extends Backend{
             $data['dataNotifikasi']   = $this->con->query('SELECT * FROM tb_pembelian WHERE status_pengiriman="1" AND  users_id="'.$_SESSION['users_id'].'"');
         }
 
-        $data['value']  = $this->con->query('SELECT * FROM pesan_masuk, tb_pengguna WHERE pesan_masuk.Id_Pengirim=tb_pengguna.users_id AND pesan_masuk.Id_Penerima="'.$_SESSION['users_id'].'"');
+        $data['value']  = $this->con->query('SELECT * FROM pesan_masuk, tb_pengguna WHERE pesan_masuk.Id_Pengirim=tb_pengguna.users_id AND pesan_masuk.Id_Penerima="'.$_SESSION['users_id'].'" GROUP BY pesan_masuk.Id_Pengirim');
         
         if ($_SESSION['role_id'] == "0"){
             echo $this->views("chat/list.php", $data);

@@ -31,7 +31,7 @@
   
           <div class="col-lg-2 col-md-6 col-sm-5 col-6 footer-list-29 footer-2 mt-lg-0 mt-5">
             <ul>
-              <h6 class="footer-title-29">Company</h6>i>
+              <h6 class="footer-title-29">Company</h6>
               <li><a href="#about">Tentang kami</a></li>
               <li> <?php if (@$_SESSION['users_id']){ ?>
               <a href="<?=base_url?>admin/index.php">Dashboard</a>

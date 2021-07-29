@@ -31,7 +31,7 @@ class invoices extends Backend{
     
     function view(){
         $data['judul']  = "Invoices";
-        $data['dataCompany']    = $this->con->query("SELECT * FROM tb_include")->fetch_object();
+        $data['dataCompany']    = $this->con->query("SELECT * FROM tb_website")->fetch_object();
         $data['value']  = $this->con->query("SELECT * FROM tb_pembelian WHERE invoices_id='".$_GET['id']."'")->fetch_object();
         if ($_SESSION['role_id'] == "0"){
             $data['dataNotifikasi']   = $this->con->query('SELECT * FROM tb_pembelian WHERE bukti_transaksi != "" ORDER BY orders_date DESC');
@@ -71,7 +71,7 @@ class invoices extends Backend{
     
     function konfirmasi($id){
         $data['judul']  = "Invoices";
-        $data['dataCompany']    = $this->con->query("SELECT * FROM tb_include")->fetch_object();
+        $data['dataCompany']    = $this->con->query("SELECT * FROM tb_website")->fetch_object();
         $data['value']  = $this->con->query("SELECT * FROM tb_pembelian WHERE invoices_id='".$id."'")->fetch_object();
         if ($_SESSION['role_id'] == "0"){
             $data['dataNotifikasi']   = $this->con->query('SELECT * FROM tb_pembelian WHERE bukti_transaksi != "" ORDER BY orders_date DESC');

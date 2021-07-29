@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 26, 2021 at 09:47 PM
+-- Generation Time: Jul 29, 2021 at 05:54 AM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 7.3.28
 
@@ -35,32 +35,6 @@ CREATE TABLE `pesan_keluar` (
   `Id_Penerima` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `pesan_keluar`
---
-
-INSERT INTO `pesan_keluar` (`IdPesanKeluar`, `Id_Pengirim`, `TanggalKirim`, `IsiPesan`, `Id_Penerima`) VALUES
-(3, 22, '2021-07-27 01:37:00', 'Hwllo', 1),
-(4, 22, '2021-07-27 01:37:00', 'Cek lagi', 1),
-(6, 1, '2021-07-27 01:44:00', 'Hehe', 22),
-(7, 1, '2021-07-27 02:02:00', 'xixixi', 22),
-(8, 1, '2021-07-27 02:04:00', 'Xixixi', 22),
-(9, 22, '2021-07-27 02:17:00', 'wah', 1),
-(10, 22, '2021-07-27 02:18:00', 'hmm', 1),
-(11, 22, '2021-07-27 02:20:00', 'asksksk', 1),
-(12, 22, '2021-07-27 02:24:00', 'helo', 1),
-(13, 22, '2021-07-27 02:25:00', 'coba laig', 1),
-(14, 22, '2021-07-27 02:30:00', 'Hello', 1),
-(15, 22, '2021-07-27 02:32:00', 'Yayayaya', 1),
-(16, 22, '2021-07-27 02:33:00', 'Oke deh', 1),
-(17, 22, '2021-07-27 02:35:00', 'Come on', 1),
-(18, 22, '2021-07-27 02:35:00', 'asdsad', 1),
-(19, 22, '2021-07-27 02:40:00', 'Wahhh', 1),
-(20, 22, '2021-07-27 02:41:00', 'Oke ga nips', 1),
-(21, 22, '2021-07-27 02:42:00', 'Wah mantul', 1),
-(23, 1, '2021-07-27 02:45:00', 'Mantep banget, udah banyak', 22),
-(24, 22, '2021-07-27 02:45:00', 'Xixixi iya nihhh', 1);
-
 -- --------------------------------------------------------
 
 --
@@ -74,34 +48,6 @@ CREATE TABLE `pesan_masuk` (
   `IsiPesan` longtext COLLATE latin1_general_ci NOT NULL,
   `Id_Penerima` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
-
---
--- Dumping data for table `pesan_masuk`
---
-
-INSERT INTO `pesan_masuk` (`IdPesanMasuk`, `Id_Pengirim`, `TanggalKirim`, `IsiPesan`, `Id_Penerima`) VALUES
-(2, 23, '2021-07-26 19:34:34', 'Hallow everybadeh', 1),
-(5, 22, '2021-07-27 01:37:00', 'Hwllo', 1),
-(6, 22, '2021-07-27 01:37:00', 'Cek lagi', 1),
-(7, 1, '2021-07-27 01:42:00', 'Iya Ada apa ya?', 1),
-(8, 1, '2021-07-27 01:44:00', 'Hehe', 22),
-(9, 1, '2021-07-27 02:02:00', 'xixixi', 22),
-(10, 1, '2021-07-27 02:04:00', 'Xixixi', 22),
-(11, 22, '2021-07-27 02:17:00', 'wah', 1),
-(12, 22, '2021-07-27 02:18:00', 'hmm', 1),
-(13, 22, '2021-07-27 02:20:00', 'asksksk', 1),
-(14, 22, '2021-07-27 02:24:00', 'helo', 1),
-(15, 22, '2021-07-27 02:25:00', 'coba laig', 1),
-(16, 22, '2021-07-27 02:30:00', 'Hello', 1),
-(17, 22, '2021-07-27 02:32:00', 'Yayayaya', 1),
-(18, 22, '2021-07-27 02:33:00', 'Oke deh', 1),
-(19, 22, '2021-07-27 02:35:00', 'Come on', 1),
-(20, 22, '2021-07-27 02:35:00', 'asdsad', 1),
-(21, 22, '2021-07-27 02:40:00', 'Wahhh', 1),
-(22, 22, '2021-07-27 02:41:00', 'Oke ga nips', 1),
-(23, 22, '2021-07-27 02:42:00', 'Wah mantul', 1),
-(25, 1, '2021-07-27 02:45:00', 'Mantep banget, udah banyak', 22),
-(26, 22, '2021-07-27 02:45:00', 'Xixixi iya nihhh', 1);
 
 -- --------------------------------------------------------
 
@@ -130,22 +76,6 @@ CREATE TABLE `tb_pembelian` (
   `status_pengiriman` tinyint(4) NOT NULL DEFAULT 0 COMMENT '0 = Belum dikirim | 1 = Sudah dikirim | 2 = Sudah diterima'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
---
--- Dumping data for table `tb_pembelian`
---
-
-INSERT INTO `tb_pembelian` (`orders_id`, `invoices_id`, `users_id`, `voucher_kode`, `orders_nama`, `orders_alamat`, `orders_kota`, `orders_kodepos`, `orders_notelp`, `orders_totalharga`, `tipe_pembayaran`, `orders_date`, `orders_duedate`, `bukti_nama_pengirim`, `bukti_transaksi`, `tgl_transaksi`, `status`, `status_pengiriman`) VALUES
-(1, 'INV20210700001', 22, NULL, 'Mohammad Irwansyah Somantri', 'Ciledug', 'Cirebon', '45111', '6283825287989', 13400, 'transfer', '2021-07-22 00:43:08', '2021-07-23 05:43:08', 'asdasda', 'WhatsApp Image 2021-07-21 at 15.46.33.jpeg', '2021-07-22 05:15:28', 'paid', 1),
-(6, 'INV20210700002', 22, NULL, 'M Teguh A', 'Jl. RA Kartini, RT 04, RW 01, Ciledug Kulon, Kab. Cirebon, Jawa Barat, Indonesia', NULL, '45188', '083825287989', 32900, 'cod', '2021-07-23 15:01:51', '2021-07-24 15:01:51', NULL, NULL, NULL, 'unpaid', 0),
-(7, 'INV20210700003', 22, NULL, 'M Teguh A', 'Jl. RA Kartini, RT 04, RW 01, Ciledug Kulon, Kab. Cirebon, Jawa Barat, Indonesia', NULL, '45188', '083825287989', 6500, 'cod', '2021-07-23 15:31:00', '2021-07-24 15:31:00', NULL, NULL, NULL, 'unpaid', 0),
-(8, 'INV20210700004', 22, 'NTP8APR8PBV7D6M', 'M Teguh A', 'Jl. RA Kartini, RT 04, RW 01, Ciledug Kulon, Kab. Cirebon, Jawa Barat, Indonesia', NULL, '45188', '083825287989', 0, 'cod', '2021-07-23 15:34:10', '2021-07-24 15:34:10', NULL, NULL, NULL, 'unpaid', 0),
-(9, 'INV20210700005', 22, 'NTP8APR8PBV7D6M', 'M Teguh A', 'Jl. RA Kartini, RT 04, RW 01, Ciledug Kulon, Kab. Cirebon, Jawa Barat, Indonesia', NULL, '45188', '083825287989', 0, 'cod', '2021-07-23 15:35:38', '2021-07-24 15:35:38', NULL, NULL, NULL, 'paid', 0),
-(10, 'INV20210700006', 22, 'NTP8APR8PBV7D6M', 'M Teguh A', 'Jl. RA Kartini, RT 04, RW 01, Ciledug Kulon, Kab. Cirebon, Jawa Barat, Indonesia', NULL, '45188', '083825287989', 0, 'cod', '2021-07-23 15:55:47', '2021-07-24 15:55:47', NULL, NULL, NULL, 'paid', 1),
-(11, 'INV20210700007', 22, 'NTP8APR8PBV7D6M', 'M Teguh A', 'Jl. RA Kartini, RT 04, RW 01, Ciledug Kulon, Kab. Cirebon, Jawa Barat, Indonesia', NULL, '45188', '083825287989', 0, 'transfer', '2021-07-23 16:12:17', '2021-07-24 16:12:17', NULL, NULL, NULL, 'paid', 1),
-(12, 'INV20210700008', 23, NULL, 'anjay nyobain', 'Kuningan', NULL, '45516', '08952548456', 6500, 'transfer', '2021-07-23 17:30:32', '2021-07-24 17:30:32', NULL, NULL, NULL, 'unpaid', 0),
-(13, 'INV20210700009', 23, NULL, 'anjay nyobain', 'Kuningan', NULL, '45516', '08952548456', 6500, 'transfer', '2021-07-23 17:33:23', '2021-07-24 17:33:23', 'yyy', 'beras.jpg', '2021-07-23 17:44:21', 'unpaid', 0),
-(14, 'INV20210700010', 24, NULL, 'User ', 'Jl raya Siliwangi, Blok A 5 ', NULL, '45554', '087111222333', 13200, 'transfer', '2021-07-24 13:03:57', '2021-07-25 13:03:57', 'User', 'IMG-20210722-WA0006.jpg', '2021-07-24 13:04:44', 'paid', 2);
-
 -- --------------------------------------------------------
 
 --
@@ -158,26 +88,6 @@ CREATE TABLE `tb_pembelian_detail` (
   `produk_id` int(11) DEFAULT NULL,
   `kuantitas` bigint(20) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
-
---
--- Dumping data for table `tb_pembelian_detail`
---
-
-INSERT INTO `tb_pembelian_detail` (`orders_detail_id`, `orders_id`, `produk_id`, `kuantitas`) VALUES
-(1, 1, 4, 2),
-(2, 6, 4, 2),
-(3, 6, 6, 1),
-(4, 6, 6, 2),
-(5, 7, 6, 1),
-(6, 8, 6, 1),
-(7, 9, 6, 1),
-(8, 10, 6, 1),
-(9, 11, 6, 2),
-(10, 12, 6, 1),
-(11, 13, 6, 1),
-(12, 14, 4, 0),
-(13, 14, 4, 1),
-(14, 14, 6, 1);
 
 -- --------------------------------------------------------
 
@@ -210,7 +120,8 @@ INSERT INTO `tb_pengguna` (`users_id`, `users_nama`, `points`, `image`, `email`,
 (19, 'asdasdq', 0, NULL, '12312@asda.123', 'd2c40242ce1bd9a59d204347868d086698e85138', 2, NULL, NULL, NULL, NULL, NULL),
 (22, 'M Teguh A', 0, 'HuggingFace.png', 'mohammadirwansyah1933@gmail.com', 'a346bc80408d9b2a5063fd1bddb20e2d5586ec30', 2, '083825287989', 'Cirebon', '2001-06-17', 'Jl. RA Kartini, RT 04, RW 01, Ciledug Kulon, Kab. Cirebon, Jawa Barat, Indonesia', '45188'),
 (23, 'anjay nyobain', 0, '', 'coba@gmail.com', '10470c3b4b1fed12c3baac014be15fac67c6e815', 2, '08952548456', 'Kuningan', '1999-11-25', 'Kuningan', '45516'),
-(24, 'User ', 300, 'IMG-20210718-WA0023.jpg', 'user@gmail.com', '60bddb16409a2baf76936619afecf778dabe68de', 2, '087111222333', 'Kuningan', '1996-07-17', 'Jl raya Siliwangi, Blok A 5 ', '45554');
+(24, 'User ', 300, 'IMG-20210718-WA0023.jpg', 'user@gmail.com', '60bddb16409a2baf76936619afecf778dabe68de', 2, '087111222333', 'Kuningan', '1996-07-17', 'Jl raya Siliwangi, Blok A 5 ', '45554'),
+(25, 'halo', 600, '', 'halo@gmail.com', '0954ff588be04e68c1d945a8c86449fde491d3f3', 2, '083825287989', 'Cirebon', '2018-06-27', 'Ciledug', '45188');
 
 -- --------------------------------------------------------
 
@@ -231,7 +142,8 @@ CREATE TABLE `tb_pengguna_voucher` (
 
 INSERT INTO `tb_pengguna_voucher` (`users_voucher_id`, `voucher_kode`, `users_id`, `redeem_date`) VALUES
 (3, 'NTP8APR8PBV7D6M', 22, '2021-07-23 18:22:13'),
-(4, 'YBN4RCZKS61X60E', 22, '2021-07-23 18:23:07');
+(4, 'YBN4RCZKS61X60E', 22, '2021-07-23 18:23:07'),
+(5, 'YBN4RCZKS61X60E', 25, '2021-07-29 04:46:49');
 
 -- --------------------------------------------------------
 
@@ -248,14 +160,6 @@ CREATE TABLE `tb_produk` (
   `date_entry` datetime NOT NULL,
   `users_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
-
---
--- Dumping data for table `tb_produk`
---
-
-INSERT INTO `tb_produk` (`produk_id`, `produk_nama`, `produk_harga`, `produk_stok`, `produk_image`, `date_entry`, `users_id`) VALUES
-(4, 'Beras', 6700, 100, 'kissingFace.png', '2021-07-22 00:21:00', NULL),
-(6, 'Telur', 6500, 89, 'overingFace.png', '2021-07-22 16:31:03', NULL);
 
 -- --------------------------------------------------------
 
@@ -279,7 +183,7 @@ CREATE TABLE `tb_voucher` (
 --
 
 INSERT INTO `tb_voucher` (`voucher_id`, `voucher_nama`, `voucher_kode`, `voucher_nominal`, `voucher_harga`, `voucher_expired`, `date_entry`, `users_id`) VALUES
-(4, 'Voucher 25.000', 'YBN4RCZKS61X60E', 25000, 30000, '2021-07-31 00:00:00', '2021-07-21 23:28:09', 1),
+(4, 'Voucher 25.000', 'YBN4RCZKS61X60E', 25000, 300, '2021-07-31 00:00:00', '2021-07-21 23:28:09', 1),
 (5, 'Voucher 50.000', 'NTP8APR8PBV7D6M', 50000, 60000, '2021-07-24 00:00:00', '2021-07-22 00:04:57', 1);
 
 -- --------------------------------------------------------
@@ -305,7 +209,7 @@ CREATE TABLE `tb_website` (
 --
 
 INSERT INTO `tb_website` (`id`, `nama`, `notelp`, `email`, `alamat`, `tentang`, `namabank`, `atasnama`, `norek`) VALUES
-(1, 'Toko Cahaya', '083825287989', 'mirwansyah1933@gmail.com', 'Jl. RA Kartini, RT 04 / RW 01, Blok Pon, No. 45, Kabupaten Cirebon, Jawa Barat, 45188', 'Lorem ipsum viverra feugiat. Pellen tesque libero ut justo, ultrices in ligula. Semper at tempufddfel. Lorem ipsum dolor sit amet Semper at elit team advisors.', 'BNI', 'Mohammad Irwansyah Somantri', '32616612');
+(1, 'Bakso Yamin Kang Iim', '083825287989', 'mirwansyah1933@gmail.com', 'Jl. RA Kartini, RT 04 / RW 01, Blok Pon, No. 45, Kabupaten Cirebon, Jawa Barat, 45188', 'Lorem ipsum viverra feugiat. Pellen tesque libero ut justo, ultrices in ligula. Semper at tempufddfel. Lorem ipsum dolor sit amet Semper at elit team advisors.', 'BNI', 'Mohammad Irwansyah Somantri', '32616612');
 
 --
 -- Indexes for dumped tables
@@ -400,25 +304,25 @@ ALTER TABLE `pesan_masuk`
 -- AUTO_INCREMENT for table `tb_pembelian`
 --
 ALTER TABLE `tb_pembelian`
-  MODIFY `orders_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `orders_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `tb_pembelian_detail`
 --
 ALTER TABLE `tb_pembelian_detail`
-  MODIFY `orders_detail_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `orders_detail_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `tb_pengguna`
 --
 ALTER TABLE `tb_pengguna`
-  MODIFY `users_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `users_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `tb_pengguna_voucher`
 --
 ALTER TABLE `tb_pengguna_voucher`
-  MODIFY `users_voucher_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `users_voucher_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tb_produk`

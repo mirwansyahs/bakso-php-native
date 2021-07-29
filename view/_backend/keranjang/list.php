@@ -28,10 +28,10 @@
                                 <div class="col-sm-4 invoice-col">
                                     From
                                     <address>
-                                        <strong><?=$data['dataCompany']->CompanyName?></strong><br>
-                                        <?=$data['dataCompany']->CompanyAddress?><br>
-                                        Phone: <?=$data['dataCompany']->PhoneNumber?><br>
-                                        Email: <?=$data['dataCompany']->CompanyEmail?>
+                                        <strong><?=$data['dataCompany']->nama?></strong><br>
+                                        <?=$data['dataCompany']->alamat?><br>
+                                        Phone: <?=$data['dataCompany']->notelp?><br>
+                                        Email: <?=$data['dataCompany']->email?>
                                     </address>
                                 </div>
                                 <!-- /.col -->
