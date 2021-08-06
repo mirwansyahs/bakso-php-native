@@ -134,12 +134,16 @@
                                                 </td>
                                             </tr>
                                             <tr>
+                                                <th>Ongkir :</th>
+                                                <td id="biayaOngkir">10.000</td>
+                                            </tr>
+                                            <tr>
                                                 <th>Potongan :</th>
                                                 <td id="potonganBiaya">0</td>
                                             </tr>
                                             <tr>
                                                 <th>Total:</th>
-                                                <td class="totalBiaya"><?=number_format($_SESSION['cartAll']['totalBiaya'], 0, ',', '.')?>
+                                                <td class="totalBiaya"><?=number_format($_SESSION['cartAll']['totalBiaya'] + 10000, 0, ',', '.')?>
                                                 </td>
                                             </tr>
                                         </table>
@@ -155,7 +159,7 @@
                                     <button type="submit" class="btn btn-primary float-right">
                                         <i class="far fa-credit-card"></i> 
                                             Checkout
-                                            <span class="totalBiaya"><?=number_format($_SESSION['cartAll']['totalBiaya'], 0, ',', '.')?></span>
+                                            <span class="totalBiaya"><?=number_format($_SESSION['cartAll']['totalBiaya']+10000, 0, ',', '.')?></span>
                                     </button>
                                 </div>
                             </div>

@@ -141,6 +141,10 @@
                     <div class="table-responsive">
                         <table class="table">
                             <tr>
+                                <th>Ongkos Kirim:</th>
+                                <td>Rp 10.000</td>
+                            </tr>
+                            <tr>
                                 <th>Total:</th>
                                 <td>Rp <?=number_format($data['value']->orders_totalharga, 0, ',', '.')?></td>
                             </tr>

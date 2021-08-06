@@ -42,6 +42,7 @@ class keranjang extends Backend{
 
     function simpanCheckout(){
         extract($_POST);
+        $_SESSION['cartAll']['totalBiaya'] = $_SESSION['cartAll']['totalBiaya'] + 10000;
         if ($voucher_kode == ""){
             $voucher_kode = 'NULL';
             $status = "unpaid";
@@ -117,7 +118,7 @@ class keranjang extends Backend{
     public function getVoucher(){
         $dataVoucher = $this->con->query("SELECT voucher_nominal FROM tb_voucher WHERE voucher_kode='".$_GET['id']."'")->fetch_object();
         if ($dataVoucher != null){
-            $perhitungan = $_SESSION['cartAll']['totalBiaya'] - $dataVoucher->voucher_nominal;
+            $perhitungan = ($_SESSION['cartAll']['totalBiaya']+10000) - $dataVoucher->voucher_nominal;
             $arr = array(
                 'succ'              => true,
                 'voucher_nominal'   => number_format($dataVoucher->voucher_nominal, 0, ',', '.'),
@@ -126,8 +127,9 @@ class keranjang extends Backend{
             
         }else{
             $arr = array(
-                'succ'          => false,
-                'totalBiaya'    => number_format($_SESSION['cartAll']['totalBiaya'], 0, ',', '.')
+                'succ'              => false,
+                'voucher_nominal'   => 0,
+                'totalBiaya'        => number_format($_SESSION['cartAll']['totalBiaya']+10000, 0, ',', '.')
             );
         }
         echo json_encode($arr);
